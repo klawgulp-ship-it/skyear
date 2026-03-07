@@ -24,6 +24,17 @@ export interface HypersonicSignature {
 
 export type SensorType = 'infrasound-array' | 'seismic' | 'rf-sdr' | 'microphone';
 
+// ── Phase 2 Detection Types ─────────────────────────────────
+export interface Phase2DetectionResult {
+  signature: HypersonicSignature;
+  nWaveCorrelation: number;
+  frequencyMatch: number;
+  sensorsMet: boolean;
+  missingSensors: SensorType[];
+  overallConfidence: number;
+  threatLevel: 'low' | 'elevated' | 'high' | 'critical';
+}
+
 // ── Detection / Classification ──────────────────────────────
 export interface DetectionResult {
   signature: DroneSignature;
